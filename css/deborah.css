@@ -101,6 +101,12 @@ h1 {
 } */
 
 
+/* Make sure flickity viewport is full height */
+.flickity-viewport {
+    height: 100% !important;
+}
+
+
 /* buttons, no circle */
 
 .flickity-prev-next-button {

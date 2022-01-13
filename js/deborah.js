@@ -11,10 +11,13 @@ function msgElement(id) {
 }
 
 function updateMessage() {
+    console.log("Updating message!");
     setTimeout(() => {
         let newAS = getActiveSlide();
+        console.log("Got new active slide!");
 
         if (activeSlide !== newAS) {
+            console.log("Transitioning messages...");
             transitionMessages(msgElement(activeSlide), msgElement(newAS), 1000);
             activeSlide = newAS;
         }
@@ -38,8 +41,8 @@ function transitionMessages(msg1, msg2, time) {
 function start() {
     updateMessage();
 
-    document.addEventListener("touchend", updateMessage);
-    document.addEventListener("mouseup", updateMessage);
+    window.onclick = updateMessage;
+    window.ontouchend = updateMessage;
 }
 
 window.onload = start;
